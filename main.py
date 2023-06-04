@@ -5,7 +5,7 @@ from fastapi.templating import Jinja2Templates
 from pymongo import MongoClient
 
 app = FastAPI()
-client = MongoClient('mongodb+srv://abhi:IveCVi4vb5KpwQPx@cluster0.26o1d.mongodb.net')
+client = MongoClient('YOUR MONGODB URI')
 
 app.mount("/static", StaticFiles(directory="static"), name="static")
 templates = Jinja2Templates(directory="templates")

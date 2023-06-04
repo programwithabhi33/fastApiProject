@@ -4,14 +4,18 @@
 {% block content %}
 <div class="container">
     <h2 class="my-4">Add Note</h2>
-    <form>
+    <form method="post">
         <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="title" placeholder="Note Title">
+            <input name="title" type="text" class="form-control" id="title" placeholder="Note Title">
             <label for="title">Note Title</label>
         </div>
         <div class="form-floating mb-3">
-            <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
+            <textarea name="desc" class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
             <label for="floatingTextarea">Note Description</label>
+        </div>
+        <div class="form-check mb-3">
+            <input type="checkbox" class="form-check-input" id="important" name="important">
+            <label class="form-check-label" for="important">Important</label>
         </div>
         <button type="submit" class="btn btn-primary">Save</button>
     </form>
