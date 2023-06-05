@@ -1,16 +1,29 @@
 {% extends "base.html" %}
-{% block title %}Index{% endblock %}
+{% block title %}Notes | {% endblock %}
 
 {% block content %}
-    <h2 class="mx-4 my-2">Notes</h2>
-    <div class="d-flex flex-wrap">
-        {% for note in note %}
-            <div class="card m-4" style="width: 18rem;">
-                <div class="card-body">
-                <h5 class="card-title">{{note.title}}</h5>
-                <p class="card-text">S{{note.description}}</p>
-                </div>
-            </div>
-        {% endfor %}
+    {% if add_note is true %}
+    <div class="alert alert-success alert-dismissible fade show mx-4 my-2" role="alert">
+        <strong>Success ! </strong>Your note added successfully.
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
+    {% endif %}
+    <h2 class="mx-4 my-2">Your Notes</h2>
+    {% if notes  %}
+        <div class="d-flex flex-wrap">
+            {% for note in notes %}
+                <div class="card m-4" style="width: 18rem;">
+                    {% if note.important == True %}
+                        <span class="badge text-bg-success position-absolute end-0">IMP</span>
+                    {% endif %}
+                    <div class="card-body">
+                    <h5 class="card-title">{{note.title}}</h5>
+                    <p class="card-text">{{note.desc}}</p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <h5 class="mx-4 my-2">Oops ! No Notes To Display</h5>
+    {% endif %}
 {% endblock %}

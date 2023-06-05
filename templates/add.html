@@ -1,10 +1,10 @@
 {% extends "base.html" %}
-{% block title %}Index{% endblock %}
+{% block title %}Add Note | {% endblock %}
 
 {% block content %}
 <div class="container">
     <h2 class="my-4">Add Note</h2>
-    <form method="post">
+    <form action="/" method="post">
         <div class="form-floating mb-3">
             <input name="title" type="text" class="form-control" id="title" placeholder="Note Title">
             <label for="title">Note Title</label>
